@@ -6,13 +6,11 @@
 html {
   font-size: 16px;
   font-family: Helvetica;
-  height: 100%;
   color: #000;
 }
 
 body {
-  width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0 auto;
   background-color: #f0f1f1;
 }
@@ -32,27 +30,38 @@ body {
   padding-right: 2vh;
 }
 
-#titulo{
+#titulo {
   padding-left: 2vh;
 }
 
-.master{
+.master {
   display: flex;
+  justify-content: space-between;
+  margin-top: 6vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
   height: 70%;
 }
 
-.tabela-bicho {
-  flex: 1;
-  margin-right: 5vw;
-  margin-left: 15vw;
-  margin-top: 5vh;
+#tabela-bicho {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: brown;
+}
+
+.bicho-container {
+  width: 21.15vh;
+  height: 20vh;
+  margin: 0;
 }
 
 .bichos {
   /* display: grid; */
-  width: 20vh;
-  height: 1vw;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .menu-apostas {
@@ -60,12 +69,12 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: khaki;
-  margin-right: 1vw;
+  /* margin-right: 1vw;
   margin-top: 5vh;
-  font-size: 2.5vh;
+  font-size: 2.5vh; */
 }
 
-#aposta{
+#aposta {
   margin-left: 1vw;
   margin-right: 1vw;
   margin-top: 1vh;
@@ -73,21 +82,49 @@ body {
   height: 7%;
 }
 
-#texto-aposta{
+#texto-aposta {
   padding-top: 2vh;
 }
 
-#botao-apostar{
+#botao-apostar {
   padding: 1vh;
   font-size: 2.5vh;
   background-color: limegreen;
 }
 
+.historico {
+  /* margin-left: 1vw;
+  margin-top:5vh; */
+  width: 20%;
+  background-color: green;
+}
+
+.bichos > img {
+  width: 10vh;
+  height: 10vh;
+}
+
 @media screen and (orientation: portrait) {
-   .tabela-bicho {
-    background-color: brown;
-    margin-top: 5.5vh;
+  .historico {
+    display: none;
+  }
+  .master {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tabela-bicho {
     width: 80%;
+    height: 40%;
+    margin-bottom: 2vh;
+  }
+
+  .menu-apostas {
+    width: 80%;
+    padding-bottom: 2vh;
+  }
+
+  #aposta {
     height: 40%;
   }
 }

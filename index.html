@@ -7,6 +7,7 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"
   />
+  <script src="index.js"></script>
   <body>
     <title>Jogo do Bicho Simulator</title>
     <header class="cabecalho">
@@ -14,36 +15,87 @@
       <p class="dinheiro">R$ 100</p>
     </header>
     <div class="master">
-      <div class="tabela-bicho">
-        <div class="bichos" id="avestruz"></div>
-        <div class="bichos" id="aguia"></div>
-        <div class="bichos" id="burro"></div>
-        <div class="bichos" id="borboleta"></div>
-        <div class="bichos" id="cachorro"></div>
-        <div class="bichos" id="cabra"></div>
-        <div class="bichos" id="carneiro"></div>
-        <div class="bichos" id="camelo"></div>
-        <div class="bichos" id="cobra"></div>
-        <div class="bichos" id="coelho"></div>
-        <div class="bichos" id="cavalo"></div>
-        <div class="bichos" id="elefante"></div>
-        <div class="bichos" id="galo"></div>
-        <div class="bichos" id="gato"></div>
-        <div class="bichos" id="jacaré"></div>
-        <div class="bichos" id="leão"></div>
-        <div class="bichos" id="macaco"></div>
-        <div class="bichos" id="porco"></div>
-        <div class="bichos" id="pavão"></div>
-        <div class="bichos" id="peru"></div>
-        <div class="bichos" id="touro"></div>
-        <div class="bichos" id="urso"></div>
-        <div class="bichos" id="veado"></div>
-        <div class="bichos" id="vaca"></div>
+      <div class="historico">
+        <div>
+          <p>Histórico épico boys:</p>
+        </div>
+      </div>
+      <div id="tabela-bicho">
+        <div class="bicho-container" id="avestruz">
+          <img class="bichos" src="img/avestruz.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="aguia">
+          <img class="bichos" src="img/aguia.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="burro">
+          <img class="bichos" src="/img/burrojpg.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="borboleta">
+          <img class="bichos" src="/img/borboleta.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="cachorro">
+          <img class="bichos" src="img/lulu.png" alt="" />
+        </div>
+        <div class="bicho-container" id="cabra">
+          <img class="bichos" src="img/cabra.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="carneiro">
+          <img class="bichos" src="img/carneiro.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="camelo">
+          <img class="bichos" src="img/camelo.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="cobra">
+          <img class="bichos" src="img/cobra.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="coelho">
+          <img class="bichos" src="img/perfil-coelho.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="cavalo">
+          <img class="bichos" src="img/cavalo.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="elefante">
+          <img class="bichos" src="img/elefante.jpg" alt="" />
+        </div>
+        <div class="bicho-container" id="galo">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="gato">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="jacaré">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="leão">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="macaco">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="porco">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="pavão">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="peru"></div>
+        <img class="bichos" src="" alt="" />
+        <div class="bicho-container" id="touro">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="urso">
+          <img class="bichos" src="" alt="" />
+        </div>
+        <div class="bicho-container" id="veado"></div>
+        <img class="bichos" src="" alt="" />
+        <div class="bicho-container" id="vaca">
+          <img class="bichos" src="" alt="" />
+        </div>
       </div>
       <div class="menu-apostas">
-          <label id="texto-aposta" for="aposta">Tipo de aposta:</label>
-          <input type="number" name="aposta" id="aposta"/>
-          <input type="submit" id="botao-apostar" value="Apostar">
+        <label id="texto-aposta" for="aposta">Tipo de aposta:</label>
+        <input type="number" name="aposta" id="aposta" />
+        <input type="submit" id="botao-apostar" value="Apostar" />
       </div>
     </div>
   </body>
