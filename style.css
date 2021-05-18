@@ -40,25 +40,45 @@ body {
   margin-top: 6vh;
   margin-left: 2vh;
   margin-right: 2vh;
-  height: 70%;
+  height: 80%;
 }
 
 #tabela-bicho {
-  width: 50%;
+  width: 105.7vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  background-color: brown;
 }
 
 .bicho-container {
-  width: 21.15vh;
-  height: 20vh;
+  width: 21.14vh;
+  height: 16vh;
   margin: 0;
 }
 
+.bicho-container img {
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.bicho-container img:hover {
+  -webkit-filter: grayscale(100%) blur(2px);
+  filter: grayscale(100%) blur(2px);
+}
+
+.bicho-container:hover > .nome_bicho {
+  display: flex;
+  opacity: 1;
+}
+
+.nome_bicho{
+  animation-name: 'aparecer_nome';
+  animation-duration: 0.5s;
+}
+
 .bichos {
-  /* display: grid; */
   width: 100%;
   height: 100%;
   margin: 0;
@@ -68,40 +88,104 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: khaki;
-  /* margin-right: 1vw;
-  margin-top: 5vh;
-  font-size: 2.5vh; */
+  background-color: #f0f1f1;
+  box-shadow: 0 0.5vh 1vh rgba(57, 63, 72, 0.3);
+  border-radius: 0.4vh;
+  width: 30vh;
+  padding: 1.3vh;
 }
 
 #aposta {
   margin-left: 1vw;
   margin-right: 1vw;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-  height: 7%;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  height: 7vh;
+  width: 80%;
 }
 
 #texto-aposta {
   padding-top: 2vh;
+  text-align: center;
+  font-size: 3vh;
+}
+
+#tipos-aposta {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.btn-tipo-aposta {
+  font-size: 2.3vh;
+  padding: 0.8vh;
+  width: 15vh;
+  flex-grow: 1;
+  width: 8vh;
+  height: 8vh;
+  box-shadow: 0 0.2vh 0.4vh rgba(57, 63, 72, 0.3);
+  border-style: solid;
+}
+
+.btn-tipo-aposta:hover {
+  background-color: #e8e8e8;
+}
+
+.btn-tipo-aposta:active {
+  transform: translateY(0.001vh);
 }
 
 #botao-apostar {
   padding: 1vh;
+  width: 100%;
   font-size: 2.5vh;
-  background-color: limegreen;
+  background-color: #28a745;
+  box-shadow: 0 0.81vh #666;
+  color: white;
+  border: none;
+}
+
+#botao-apostar:hover {
+  background-color: #007e33;
+}
+
+#botao-apostar:active {
+  transform: translateY(1.5px);
 }
 
 .historico {
-  /* margin-left: 1vw;
-  margin-top:5vh; */
-  width: 20%;
+  width: 30vh;
   background-color: green;
 }
 
-.bichos > img {
+.nome_bicho {
+  display: none;
+  color: white;
+  font-weight: 700;
+  margin-top: 12vh;
+  margin-left: 1vh;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  text-align: center;
+}
+
+.bichos > img:hover {
   width: 10vh;
   height: 10vh;
+}
+
+@keyframes aparecer_nome {
+  from{
+    display: none;
+    opacity: 0;
+  }
+  to{
+    display: flex;
+    opacity: 1;
+  }
 }
 
 @media screen and (orientation: portrait) {

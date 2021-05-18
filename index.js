@@ -34,6 +34,11 @@ const bichos_exec = () => {
     xenix.className = "bicho-container";
     xenix.id = bichos[i];
 
+    let nome = document.createElement("p");
+    nome.className = 'nome_bicho'
+    nome.innerHTML = bichos[i].charAt(0).toUpperCase() + bichos[i].slice(1)
+    xenix.appendChild(nome);
+
     let imagem = document.createElement("img");
     imagem.src = "img/" + bichos[i] + ".jpg";
     imagem.className = "bichos";
@@ -41,7 +46,6 @@ const bichos_exec = () => {
 
     document.getElementById("tabela-bicho").appendChild(xenix);
 
-    console.log(bichos[i]);
     i++;
   }
 };
