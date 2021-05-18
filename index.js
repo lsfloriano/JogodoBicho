@@ -18,7 +18,7 @@ const bichos_exec = () => {
     "leao",
     "macaco",
     "porco",
-    "pavão",
+    "pavao",
     "peru",
     "touro",
     "tigre",
