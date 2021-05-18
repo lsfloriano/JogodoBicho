@@ -35,7 +35,7 @@ const bichos_exec = () => {
     xenix.id = bichos[i];
 
     let imagem = document.createElement("img");
-    imagem.src = "/img/" + bichos[i] + ".jpg";
+    imagem.src = "img/" + bichos[i] + ".jpg";
     imagem.className = "bichos";
     xenix.appendChild(imagem);
 
