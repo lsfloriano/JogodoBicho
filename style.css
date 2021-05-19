@@ -57,6 +57,7 @@ body {
 }
 
 .bicho-container img {
+  cursor: pointer;
   -webkit-filter: grayscale(0) blur(0);
   filter: grayscale(0) blur(0);
   -webkit-transition: 0.3s ease-in-out;
@@ -73,9 +74,69 @@ body {
   opacity: 1;
 }
 
-.nome_bicho{
-  animation-name: 'aparecer_nome';
-  animation-duration: 0.5s;
+.nome_bicho {
+  user-select: none;
+  cursor: pointer;
+  display: none;
+  color: white;
+  font-weight: 700;
+  font-size: 2.5vh;
+  margin-top: 12vh;
+  margin-left: 1vh;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  text-align: center;
+  -webkit-animation-name: "aparecer_nome";
+  animation-name: "aparecer_nome";
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.numero_grupo_bicho {
+  user-select: none;
+  cursor: pointer;
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  z-index: 1;
+  margin-top: 1vh;
+  margin-left: 1vh;
+  position: absolute;
+  text-align: center;
+  color: #eb3b5a;
+  -webkit-animation-name: "aparecer_nome";
+  animation-name: "aparecer_nome";
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.dezenas_bichos {
+  user-select: none;
+  cursor: pointer;
+  display: none;
+  font-weight: 700;
+  opacity: 0;
+  z-index: 2;
+  margin-top: 1vh;
+  margin-left: 18vh;
+  position: absolute;
+  color: #eb3b5a;
+  -webkit-animation-name: "aparecer_nome";
+  animation-name: "aparecer_nome";
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.bicho-container:hover > .numero_grupo_bicho {
+  display: flex;
+  opacity: 1;
+}
+
+.bicho-container:hover > .dezenas_bichos {
+  display: grid;
+  grid-auto-columns: 1vh;
+  opacity: 1;
 }
 
 .bichos {
@@ -119,6 +180,7 @@ body {
 }
 
 .btn-tipo-aposta {
+  cursor: pointer;
   font-size: 2.3vh;
   padding: 0.8vh;
   width: 15vh;
@@ -133,11 +195,16 @@ body {
   background-color: #e8e8e8;
 }
 
+.btn-tipo-aposta:focus{
+  background-color: #BDBDBD;
+}
+
 .btn-tipo-aposta:active {
   transform: translateY(0.001vh);
 }
 
 #botao-apostar {
+  cursor: pointer;
   padding: 1vh;
   width: 100%;
   font-size: 2.5vh;
@@ -160,29 +227,17 @@ body {
   background-color: green;
 }
 
-.nome_bicho {
-  display: none;
-  color: white;
-  font-weight: 700;
-  margin-top: 12vh;
-  margin-left: 1vh;
-  opacity: 0;
-  z-index: 2;
-  position: absolute;
-  text-align: center;
-}
-
 .bichos > img:hover {
   width: 10vh;
   height: 10vh;
 }
 
 @keyframes aparecer_nome {
-  from{
+  from {
     display: none;
     opacity: 0;
   }
-  to{
+  to {
     display: flex;
     opacity: 1;
   }
