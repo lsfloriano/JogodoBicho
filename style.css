@@ -56,7 +56,7 @@ body {
   margin: 0;
 }
 
-.bicho-container img {
+.bicho-container {
   cursor: pointer;
   -webkit-filter: grayscale(0) blur(0);
   filter: grayscale(0) blur(0);
@@ -79,7 +79,6 @@ body {
   cursor: pointer;
   display: none;
   color: whitesmoke;
-  /* -webkit-text-stroke: 0.15vh #242625; */
   background-color: #242625;
   width: 21.06vh;
   font-weight: 700;
@@ -148,7 +147,22 @@ body {
   opacity: 1;
 }
 
-.bicho-container:hover > .dezenas_bichos {
+.nome_bicho:hover ~ img{
+  -webkit-filter: grayscale(100%) blur(0.7987220447284346vh);
+  filter: grayscale(100%) blur(0.7987220447284346vh);
+}
+
+.dezenas_bichos:hover ~ img{
+  -webkit-filter: grayscale(100%) blur(0.7987220447284346vh);
+  filter: grayscale(100%) blur(0.7987220447284346vh);
+}
+
+.numero_grupo_bicho:hover ~ img{
+  -webkit-filter: grayscale(100%) blur(0.7987220447284346vh);
+  filter: grayscale(100%) blur(0.7987220447284346vh);
+}
+
+.bicho-container:hover > .dezenas_bichos{
   display: grid;
   grid-auto-columns: 1vh;
   opacity: 1;
