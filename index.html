@@ -23,20 +23,49 @@
           <p>Histórico épico boys:</p>
         </div>
       </div>
-      <div id="tabela-bicho">
-      </div>
+      <div id="tabela-bicho"></div>
       <div class="menu-apostas">
         <label id="texto-aposta" for="aposta">Tipo de aposta:</label>
         <div id="tipos-aposta">
-          <button class="btn-tipo-aposta">Grupo</button>
-          <button class="btn-tipo-aposta">Duplo</button>
-          <button class="btn-tipo-aposta">Terno</button>
-          <button class="btn-tipo-aposta">Quadra</button>
-          <button class="btn-tipo-aposta">Quina</button>
-          <button class="btn-tipo-aposta">Pulo</button>
-          <input type="button" class="btn-tipo-aposta" value="Dezena"/>
-          <button class="btn-tipo-aposta" >Centena</button>
-          <button class="btn-tipo-aposta" >Milhar</button>
+          <button id="grupo" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+            Grupo
+          </button>
+          <button id="duplo" class="btn-tipo-aposta" onclick='jubileu(), paulinho_gogo(this)'>
+            Duplo
+          </button>
+          <button id="terno" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+            Terno
+          </button>
+          <button id="quadra" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+            Quadra
+          </button>
+          <button id="quina" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+            Quina
+          </button>
+          <button id="pulo" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+            Pulo
+          </button>
+          <input
+            type="button"
+            class="btn-tipo-aposta"
+            id='dezena'
+            value="Dezena"
+            onclick="insertNumeros(this)"
+          />
+          <input
+            type="button"
+            class="btn-tipo-aposta"
+            value="Centena"
+            id='centena'
+            onclick="insertNumeros(this)"
+          />
+          <input
+            type="button"
+            class="btn-tipo-aposta"
+            value="Milhar"
+            id='milhar'
+            onclick="insertNumeros(this)"
+          />
         </div>
         <input type="submit" id="botao-apostar" value="Apostar" />
       </div>

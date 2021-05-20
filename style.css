@@ -65,8 +65,8 @@ body {
 }
 
 .bicho-container img:hover {
-  -webkit-filter: grayscale(100%) blur(2px);
-  filter: grayscale(100%) blur(2px);
+  -webkit-filter: grayscale(100%) blur(0.7987220447284346vh);
+  filter: grayscale(100%) blur(0.7987220447284346vh);
 }
 
 .bicho-container:hover > .nome_bicho {
@@ -78,11 +78,13 @@ body {
   user-select: none;
   cursor: pointer;
   display: none;
-  color: white;
+  color: whitesmoke;
+  /* -webkit-text-stroke: 0.15vh #242625; */
+  background-color: #242625;
+  width: 21.06vh;
   font-weight: 700;
-  font-size: 2.5vh;
-  margin-top: 12vh;
-  margin-left: 1vh;
+  font-size: 3vh;
+  margin-top: 12.5vh;
   opacity: 0;
   z-index: 2;
   position: absolute;
@@ -98,6 +100,7 @@ body {
   cursor: pointer;
   display: none;
   font-weight: 700;
+  font-size: 3vh;
   opacity: 0;
   z-index: 1;
   margin-top: 1vh;
@@ -105,6 +108,13 @@ body {
   position: absolute;
   text-align: center;
   color: #eb3b5a;
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 4vh;
+  height: 4vh;
   -webkit-animation-name: "aparecer_nome";
   animation-name: "aparecer_nome";
   -webkit-animation-duration: 1s;
@@ -116,12 +126,17 @@ body {
   cursor: pointer;
   display: none;
   font-weight: 700;
+  font-size: 2.5vh;
   opacity: 0;
   z-index: 2;
-  margin-top: 1vh;
-  margin-left: 18vh;
+  padding-top: 1vh;
+  padding-left: 1vh;
+  margin-bottom: 1vh;
+  background-color: #242625;
+  width: 4.11vh;
+  margin-left: 16vh;
   position: absolute;
-  color: #eb3b5a;
+  color: ivory;
   -webkit-animation-name: "aparecer_nome";
   animation-name: "aparecer_nome";
   -webkit-animation-duration: 1s;
@@ -187,7 +202,6 @@ body {
   flex-grow: 1;
   width: 8vh;
   height: 8vh;
-  box-shadow: 0 0.2vh 0.4vh rgba(57, 63, 72, 0.3);
   border-style: solid;
 }
 
@@ -195,9 +209,9 @@ body {
   background-color: #e8e8e8;
 }
 
-.btn-tipo-aposta:focus{
-  background-color: #BDBDBD;
-}
+/* .btn-tipo-aposta:focus {
+  background-color: #bdbdbd;
+} */
 
 .btn-tipo-aposta:active {
   transform: translateY(0.001vh);
@@ -222,9 +236,22 @@ body {
   transform: translateY(1.5px);
 }
 
+#xerupita {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  border: none;
+  margin-top: 3vh;
+  padding: 2vh;
+  width: 100%;
+  font-size: 2.7vh;
+  text-align: center;
+}
+
 .historico {
   width: 30vh;
   background-color: green;
+  font-size: 3vh;
 }
 
 .bichos > img:hover {

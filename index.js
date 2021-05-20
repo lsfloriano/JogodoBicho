@@ -69,7 +69,13 @@ const bichos_exec = () => {
 
     let numero_grupo = document.createElement("p");
     numero_grupo.className = "numero_grupo_bicho";
-    numero_grupo.innerHTML = i + 1;
+    let valor = i + 1;
+
+    if (valor >= 1 && valor < 10) {
+      valor = "0" + valor;
+    }
+
+    numero_grupo.innerHTML = valor;
     xenix.appendChild(numero_grupo);
 
     let dezenas_grupos_bichos = document.createElement("p");
@@ -86,15 +92,41 @@ const bichos_exec = () => {
 
     i++;
   }
+};
 
-  document.getElementsByClassName("btn-tipo-aposta").onclick = function() {insertNumeros()};
+let modus_operandi = [];
 
-  // function insertNumeros() {
-  //   let carlos =  document.getElementById('tipos-aposta');
-  //   let criar_input = document.createElement('input');
-  //   criar_input.type = 'number';
-  //   carlos.appendChild(criar_input); 
-  // }
+const paulinho_gogo = (elem) => {
+  try {
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
+  } catch {}
+  modus_operandi.shift();
+  modus_operandi.push(elem.id);
+  document.getElementById(modus_operandi[0]).style.backgroundColor = "#bdbdbd";
+};
+
+const jubileu = () => {
+  if (document.getElementById("xerupita")) {
+    document.getElementById("xerupita").remove();
+  }
+};
+
+const insertNumeros = (elem) => {
+  if (document.getElementById("xerupita")) {
+    document.getElementById("xerupita").remove();
+  }
+
+  paulinho_gogo(elem)
+
+  let carlos = document.getElementById("tipos-aposta");
+  let criar_input = document.createElement("input");
+  criar_input.id = "xerupita";
+  criar_input.maxlength = 3;
+  criar_input.min = 0;
+  criar_input.type = "number";
+  criar_input.placeholder = `Insira a ${elem.value}`;
+  carlos.appendChild(criar_input);
 };
 
 window.onload = () => bichos_exec();
