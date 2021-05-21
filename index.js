@@ -54,8 +54,10 @@ let dezenas = [
   "97 98 99 00",
 ];
 
-const bichos_exec = () => {
+let grupo = [];
+let duplo = [];
 
+const bichos_exec = () => {
   let i = 0;
 
   while (i < bichos.length) {
@@ -106,18 +108,123 @@ const paulinho_gogo = (elem) => {
   modus_operandi.push(elem.id);
   document.getElementById(modus_operandi[0]).style.backgroundColor = "#bdbdbd";
 
-  if(elem.id === 'grupo'){
+  if (elem.id === "grupo") {
     let klevitz = 0;
     while (klevitz < 25) {
-      document.getElementById(bichos[klevitz]).onclick = function () { xablix(this.id); };
-      klevitz++; 
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_grupo(this);
+      };
+      klevitz++;
+    }
+  }
+  if (elem.id === "duplo") {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_duplo(this);
+      };
+      klevitz++;
     }
   }
 };
 
-const xablix = (elem) => {
-  console.log(elem)
-}
+const habilitar_grupo = (elem) => {
+  if (grupo.length == 0) {
+    grupo.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        desabilitar_grupo(this);
+      };
+      klevitz++;
+    }
+  }
+};
+
+const desabilitar_grupo = (elem) => {
+  if (grupo.length > 0) {
+    if (elem.estado == 1) {
+      elem.style.webkitFilter = "grayscale(0) blur(0)";
+      elem.style.filter = "grayscale(0%) blur(0)";
+      elem.estado = 0;
+      grupo.shift();
+      let klevitz = 0;
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_grupo(this);
+        };
+        klevitz++;
+      }
+    } else {
+      elem.onclick = "";
+      habilitar_grupo(elem);
+    }
+  }
+};
+
+const habilitar_duplo = (elem) => {
+  if (duplo.length < 2) {
+    duplo.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    elem.vlrArray = duplo.length - 1;
+    console.log(elem.vlrArray);
+  }
+
+  if (duplo.length == 2) {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        desabilitar_duplo(this);
+      };
+      klevitz++;
+    }
+  }
+};
+
+const desabilitar_duplo = (elem) => {
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < duplo.length; i++) {
+      if (duplo[i] === elem.id) {
+        duplo.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (duplo.length == 0) {
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_duplo(this);
+        };
+        klevitz++;
+      }
+    }
+  } else {
+    elem.onclick = "";
+    habilitar_duplo(elem);
+  }
+};
+
+// const xablox = (elem) => {
+//   if (elem.estado == 1) {
+//     elem.style.webkitFilter = "grayscale(0) blur(0)";
+//     elem.style.filter = "grayscale(0%) blur(0)";
+//     elem.estado = 0;
+//   } else {
+//     elem.onclick = "";
+//     xablix(elem);
+//   }
+// };
 
 const jubileu = () => {
   if (document.getElementById("xerupita")) {
@@ -130,7 +237,7 @@ const insertNumeros = (elem) => {
     document.getElementById("xerupita").remove();
   }
 
-  paulinho_gogo(elem)
+  paulinho_gogo(elem);
 
   let carlos = document.getElementById("tipos-aposta");
   let criar_input = document.createElement("input");
@@ -143,4 +250,3 @@ const insertNumeros = (elem) => {
 };
 
 window.onload = () => bichos_exec();
-
