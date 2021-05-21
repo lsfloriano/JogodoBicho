@@ -56,6 +56,9 @@ let dezenas = [
 
 let grupo = [];
 let duplo = [];
+let terno = [];
+let quadra = [];
+let quina = [];
 
 const bichos_exec = () => {
   let i = 0;
@@ -126,6 +129,35 @@ const paulinho_gogo = (elem) => {
       klevitz++;
     }
   }
+
+  if (elem.id === "terno") {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_terno(this);
+      };
+      klevitz++;
+    }
+  }
+
+  if (elem.id === "quadra") {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_quadra(this);
+      };
+      klevitz++;
+    }
+  }
+  if (elem.id === "quina") {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_quina(this);
+      };
+      klevitz++;
+    }
+  }
 };
 
 const habilitar_grupo = (elem) => {
@@ -172,7 +204,7 @@ const habilitar_duplo = (elem) => {
     elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
     elem.estado = 1;
     elem.vlrArray = duplo.length - 1;
-    console.log(elem.vlrArray);
+    console.log(duplo.length);
   }
 
   if (duplo.length == 2) {
@@ -212,6 +244,156 @@ const desabilitar_duplo = (elem) => {
   } else {
     elem.onclick = "";
     habilitar_duplo(elem);
+  }
+};
+
+const habilitar_terno = (elem) => {
+  if (terno.length < 3) {
+    terno.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    elem.vlrArray = terno.length - 1;
+    console.log(elem.vlrArray);
+  }
+
+  if (terno.length == 3) {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        desabilitar_terno(this);
+      };
+      klevitz++;
+    }
+  }
+};
+
+const desabilitar_terno = (elem) => {
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < terno.length; i++) {
+      if (terno[i] === elem.id) {
+        terno.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (terno.length == 0) {
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_terno(this);
+        };
+        klevitz++;
+      }
+    }
+  } else {
+    elem.onclick = "";
+    habilitar_terno(elem);
+  }
+};
+
+const habilitar_quadra = (elem) => {
+  if (quadra.length < 4) {
+    quadra.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    elem.vlrArray = quadra.length - 1;
+    console.log(elem.vlrArray);
+  }
+
+  if (quadra.length == 4) {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        desabilitar_quadra(this);
+      };
+      klevitz++;
+    }
+  }
+};
+
+const desabilitar_quadra = (elem) => {
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < quadra.length; i++) {
+      if (quadra[i] === elem.id) {
+        quadra.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (quadra.length == 0) {
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_quadra(this);
+        };
+        klevitz++;
+      }
+    }
+  } else {
+    elem.onclick = "";
+    habilitar_quadra(elem);
+  }
+};
+
+const habilitar_quina = (elem) => {
+  if (quina.length < 5) {
+    quina.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    elem.vlrArray = quina.length - 1;
+    console.log(elem.vlrArray);
+  }
+
+  if (quina.length == 5) {
+    let klevitz = 0;
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        desabilitar_quina(this);
+      };
+      klevitz++;
+    }
+  }
+};
+
+const desabilitar_quina = (elem) => {
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < quina.length; i++) {
+      if (quina[i] === elem.id) {
+        quina.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (quina.length == 0) {
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_quina(this);
+        };
+        klevitz++;
+      }
+    }
+  } else {
+    elem.onclick = "";
+    habilitar_quina(elem);
   }
 };
 
