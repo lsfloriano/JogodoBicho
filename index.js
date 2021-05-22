@@ -113,6 +113,22 @@ const paulinho_gogo = (elem) => {
 
   if (elem.id === "grupo") {
     let klevitz = 0;
+    for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+      document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+      document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+      document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+      document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    }
+    duplo = [];
+    terno = [];
+    quadra = [];
+    quina = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_grupo(this);
@@ -122,6 +138,22 @@ const paulinho_gogo = (elem) => {
   }
   if (elem.id === "duplo") {
     let klevitz = 0;
+    try {
+      document.getElementById(grupo[klevitz]).style.filter = "grayscale(0)";
+    } catch {}
+    for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+      document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+      document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+      document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    }
+    terno = [];
+    quadra = [];
+    quina = [];
+    grupo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_duplo(this);
@@ -132,6 +164,22 @@ const paulinho_gogo = (elem) => {
 
   if (elem.id === "terno") {
     let klevitz = 0;
+    try {
+      document.getElementById(grupo[klevitz]).style.filter = "grayscale(0)";
+    } catch {}
+    for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+      document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+      document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+      document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    }
+    duplo = [];
+    quadra = [];
+    quina = [];
+    grupo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_terno(this);
@@ -142,6 +190,22 @@ const paulinho_gogo = (elem) => {
 
   if (elem.id === "quadra") {
     let klevitz = 0;
+    try {
+      document.getElementById(grupo[klevitz]).style.filter = "grayscale(0)";
+    } catch {}
+    for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+      document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+      document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+      document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    }
+    duplo = [];
+    terno = [];
+    quina = [];
+    grupo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_quadra(this);
@@ -151,6 +215,22 @@ const paulinho_gogo = (elem) => {
   }
   if (elem.id === "quina") {
     let klevitz = 0;
+    try {
+      document.getElementById(grupo[klevitz]).style.filter = "grayscale(0)";
+    } catch {}
+    for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+      document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+      document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+      document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    }
+    duplo = [];
+    terno = [];
+    quadra = [];
+    grupo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_quina(this);
