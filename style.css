@@ -223,10 +223,6 @@ body {
   background-color: #e8e8e8;
 }
 
-/* .btn-tipo-aposta:focus {
-  background-color: #bdbdbd;
-} */
-
 .btn-tipo-aposta:active {
   transform: translateY(0.001vh);
 }
@@ -262,10 +258,23 @@ body {
   text-align: center;
 }
 
-.historico {
+#historico {
   width: 30vh;
-  background-color: green;
+  background-color: #f0f1f1;
+  box-shadow: 0 0.5vh 1vh rgba(57, 63, 72, 0.3);
   font-size: 3vh;
+}
+
+#historico_texto{
+  text-align: center;
+  padding-top: 2vh;
+}
+
+#historico_inner {
+  background-color: #E3E3E3;
+  width: 80%;
+  height: 70vh;
+  margin: 2vh 3vh;
 }
 
 .bichos > img:hover {
