@@ -550,6 +550,9 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quadra}.`;
     espaco_historico.appendChild(enviar_texto_historico);
+    erase_all();
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
   }
 
   if (quina.length === 5) {
