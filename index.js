@@ -477,17 +477,6 @@ const desabilitar_quina = (elem) => {
   }
 };
 
-// const xablox = (elem) => {
-//   if (elem.estado == 1) {
-//     elem.style.webkitFilter = "grayscale(0) blur(0)";
-//     elem.style.filter = "grayscale(0%) blur(0)";
-//     elem.estado = 0;
-//   } else {
-//     elem.onclick = "";
-//     xablix(elem);
-//   }
-// };
-
 const jubileu = () => {
   if (document.getElementById("xerupita")) {
     document.getElementById("xerupita").remove();
@@ -509,6 +498,48 @@ const insertNumeros = (elem) => {
   criar_input.type = "number";
   criar_input.placeholder = `Insira a ${elem.value}`;
   carlos.appendChild(criar_input);
+};
+
+const enviar_aposta = () => {
+  if (grupo.length === 1) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${grupo}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+  }
+
+  if (duplo.length === 2) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${duplo}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+  }
+
+  if (terno.length === 3) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${terno}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+  }
+
+  if (quadra.length === 4) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quadra}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+  }
+
+  if (quina.length === 5) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quina}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+  }
 };
 
 window.onload = () => bichos_exec();

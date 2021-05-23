@@ -271,10 +271,19 @@ body {
 }
 
 #historico_inner {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
   background-color: #E3E3E3;
   width: 80%;
   height: 70vh;
   margin: 2vh 3vh;
+}
+
+.texto_inner_historico{
+  display: flex;
+  font-size: 1.4vh;
+  padding-bottom: 1.5vh;
 }
 
 .bichos > img:hover {
