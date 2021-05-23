@@ -98,6 +98,12 @@ const bichos_exec = () => {
 
     i++;
   }
+
+  let dinheiro = document.createElement("p");
+  let header = document.getElementById("cabecalho");
+  dinheiro.className = "dinheiro";
+  dinheiro.innerHTML = "R$ " + 100;
+  header.appendChild(dinheiro);
 };
 
 let modus_operandi = [];
@@ -483,7 +489,7 @@ const jubileu = () => {
   }
 };
 
-const insertNumeros = (elem) => {
+const inserir_dcm = (elem) => {
   if (document.getElementById("xerupita")) {
     document.getElementById("xerupita").remove();
   }
@@ -500,13 +506,20 @@ const insertNumeros = (elem) => {
   carlos.appendChild(criar_input);
 };
 
-const enviar_aposta = () => {
+const enviar_aposta = (elem) => {
+  let max_length = elem.length + 1;
+  if (elem.length === max_length) {
+    document.write("teste");
+  }
   if (grupo.length === 1) {
     let enviar_texto_historico = document.createElement("p");
     let espaco_historico = document.getElementById("historico_inner");
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${grupo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
+    erase_all();
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
   }
 
   if (duplo.length === 2) {
@@ -515,6 +528,9 @@ const enviar_aposta = () => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${duplo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
+    erase_all();
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
   }
 
   if (terno.length === 3) {
@@ -523,6 +539,9 @@ const enviar_aposta = () => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${terno}.`;
     espaco_historico.appendChild(enviar_texto_historico);
+    erase_all();
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
   }
 
   if (quadra.length === 4) {
@@ -539,7 +558,40 @@ const enviar_aposta = () => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quina}.`;
     espaco_historico.appendChild(enviar_texto_historico);
+    erase_all();
+    document.getElementById(modus_operandi[0]).style.backgroundColor =
+      "#f0f1f1";
   }
+};
+
+const erase_all = () => {
+  for (let xerecard = 0; xerecard < grupo.length; xerecard++) {
+    document.getElementById(grupo[xerecard]).style = "grayscale(0)";
+  }
+  for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+    document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+  }
+  for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+    document.getElementById(terno[xerecard]).style = "grayscale(0)";
+  }
+  for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+    document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+  }
+  for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+    document.getElementById(quina[xerecard]).style = "grayscale(0)";
+  }
+  grupo = [];
+  duplo = [];
+  terno = [];
+  quadra = [];
+  quina = [];
+};
+
+const inserir_dinheiro = (elem) => {
+  let menu = document.getElementById("menu-apostas");
+  let input = document.createElement("input");
+  input.type = "number";
+  menu.appendChild(input);
 };
 
 window.onload = () => bichos_exec();

@@ -15,7 +15,7 @@ body {
   background-color: #f0f1f1;
 }
 
-.cabecalho {
+#cabecalho {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -174,7 +174,7 @@ body {
   margin: 0;
 }
 
-.menu-apostas {
+#menu-apostas {
   display: flex;
   flex-direction: column;
   align-items: center;

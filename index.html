@@ -13,62 +13,92 @@
   </head>
   <body>
     <title>Jogo do Bicho Simulator</title>
-    <header class="cabecalho">
+    <header id="cabecalho">
       <p id="titulo">Jogo do Bicho Simulator</p>
-      <p class="dinheiro">R$ 100</p>
     </header>
     <div class="master">
       <div id="historico">
         <div>
-          <p id="historico_texto"><i class="fas fa-clock" style="color: #B0B0B0;"></i> Histórico:</p>
+          <p id="historico_texto">
+            <i class="fas fa-clock" style="color: #b0b0b0"></i> Histórico:
+          </p>
         </div>
         <div id="historico_inner"></div>
       </div>
       <div id="tabela-bicho"></div>
-      <div class="menu-apostas">
+      <div id="menu-apostas">
         <label id="texto-aposta" for="aposta">Tipo de aposta:</label>
         <div id="tipos-aposta">
-          <button id="grupo" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+          <button
+            id="grupo"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Grupo
           </button>
-          <button id="duplo" class="btn-tipo-aposta" onclick='jubileu(), paulinho_gogo(this)'>
+          <button
+            id="duplo"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Duplo
           </button>
-          <button id="terno" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+          <button
+            id="terno"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Terno
           </button>
-          <button id="quadra" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+          <button
+            id="quadra"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Quadra
           </button>
-          <button id="quina" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+          <button
+            id="quina"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Quina
           </button>
-          <button id="pulo" class="btn-tipo-aposta" onclick="jubileu(), paulinho_gogo(this)">
+          <button
+            id="pulo"
+            class="btn-tipo-aposta"
+            onclick="jubileu(), paulinho_gogo(this)"
+          >
             Pulo
           </button>
           <input
             type="button"
             class="btn-tipo-aposta"
-            id='dezena'
+            id="dezena"
             value="Dezena"
-            onclick="insertNumeros(this)"
+            onclick="inserir_dcm(this)"
           />
           <input
             type="button"
             class="btn-tipo-aposta"
             value="Centena"
-            id='centena'
-            onclick="insertNumeros(this)"
+            id="centena"
+            onclick="inserir_dcm(this)"
           />
           <input
             type="button"
             class="btn-tipo-aposta"
             value="Milhar"
-            id='milhar'
-            onclick="insertNumeros(this)"
+            id="milhar"
+            onclick="inserir_dcm(this)"
           />
         </div>
-        <input type="button" id="botao-apostar" value="Apostar" onclick="enviar_aposta()" />
+        <input
+          type="button"
+          id="botao-apostar"
+          value="Apostar"
+          onclick="enviar_aposta(this)"
+        />
       </div>
     </div>
   </body>
