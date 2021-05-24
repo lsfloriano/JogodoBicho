@@ -253,6 +253,7 @@ const habilitar_grupo = (elem) => {
     elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
     elem.estado = 1;
     let klevitz = 0;
+    inserir_dinheiro();
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_grupo(this);
@@ -295,6 +296,7 @@ const habilitar_duplo = (elem) => {
 
   if (duplo.length == 2) {
     let klevitz = 0;
+    inserir_dinheiro();
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_duplo(this);
@@ -345,6 +347,7 @@ const habilitar_terno = (elem) => {
 
   if (terno.length == 3) {
     let klevitz = 0;
+    inserir_dinheiro();
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_terno(this);
@@ -395,6 +398,7 @@ const habilitar_quadra = (elem) => {
 
   if (quadra.length == 4) {
     let klevitz = 0;
+    inserir_dinheiro();
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_quadra(this);
@@ -440,11 +444,11 @@ const habilitar_quina = (elem) => {
     elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
     elem.estado = 1;
     elem.vlrArray = quina.length - 1;
-    console.log(elem.vlrArray);
   }
 
   if (quina.length == 5) {
     let klevitz = 0;
+    inserir_dinheiro(quina);
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_quina(this);
@@ -591,10 +595,22 @@ const erase_all = () => {
 };
 
 const inserir_dinheiro = (elem) => {
-  let menu = document.getElementById("menu-apostas");
+  let labelzona = document.createElement("label");
+  labelzona.id = "texto_inserir_dinheiro_bicho";
+  labelzona.innerHTML = "Aposta R$:";
+  let menu = document.getElementById("tipos-aposta");
   let input = document.createElement("input");
   input.type = "number";
+  input.id = "inserir_dinheiro_bicho";
+  menu.appendChild(labelzona);
   menu.appendChild(input);
+};
+
+const limpar_inserir_dinheiro = () => {
+  if (document.getElementById("texto_inserir_dinheiro_bicho") && document.getElementById('inserir_dinheiro_bicho') ) {
+    document.getElementById("texto_inserir_dinheiro_bicho").remove();
+    document.getElementById('inserir_dinheiro_bicho').remove();
+  }
 };
 
 window.onload = () => bichos_exec();

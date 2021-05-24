@@ -227,6 +227,24 @@ body {
   transform: translateY(0.001vh);
 }
 
+#inserir_dinheiro_bicho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  margin-top: 2vh;
+  width: 100%;
+  appearance: textfield;
+  font-size: 3vh;
+  font-family: Helvetica;
+}
+
+#texto_inserir_dinheiro_bicho{
+  display: flex;
+  margin-top: 3vh;
+  font-size: 2.7vh;
+  word-break: break-all;
+}
+
 #botao-apostar {
   cursor: pointer;
   padding: 1vh;
@@ -282,8 +300,9 @@ body {
 
 .texto_inner_historico{
   display: flex;
-  font-size: 1.4vh;
+  font-size: 2vh;
   padding-bottom: 1.5vh;
+  word-break: break-all;
 }
 
 .bichos > img:hover {
