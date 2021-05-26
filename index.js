@@ -294,16 +294,16 @@ const habilitar_duplo = (elem) => {
     console.log(duplo.length);
   }
 
-  if (duplo.length == 2) {
     let klevitz = 0;
-    inserir_dinheiro();
+    if (duplo.length === 2) {
+      inserir_dinheiro();
+    }
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_duplo(this);
       };
       klevitz++;
     }
-  }
 };
 
 const desabilitar_duplo = (elem) => {
@@ -345,16 +345,16 @@ const habilitar_terno = (elem) => {
     console.log(elem.vlrArray);
   }
 
-  if (terno.length == 3) {
     let klevitz = 0;
-    inserir_dinheiro();
+    if (terno.length === 3) {
+      inserir_dinheiro();
+    }
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_terno(this);
       };
       klevitz++;
     }
-  }
 };
 
 const desabilitar_terno = (elem) => {
@@ -396,16 +396,16 @@ const habilitar_quadra = (elem) => {
     console.log(elem.vlrArray);
   }
 
-  if (quadra.length == 4) {
     let klevitz = 0;
-    inserir_dinheiro();
+    if (quadra.length === 4) {
+      inserir_dinheiro();
+    }
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_quadra(this);
       };
       klevitz++;
     }
-  }
 };
 
 const desabilitar_quadra = (elem) => {
@@ -446,15 +446,15 @@ const habilitar_quina = (elem) => {
     elem.vlrArray = quina.length - 1;
   }
 
-  if (quina.length == 5) {
-    let klevitz = 0;
-    inserir_dinheiro(quina);
-    while (klevitz < 25) {
-      document.getElementById(bichos[klevitz]).onclick = function () {
-        desabilitar_quina(this);
-      };
-      klevitz++;
-    }
+  let klevitz = 0;
+  if (quina.length === 5) {
+    inserir_dinheiro();
+  }
+  while (klevitz < 25) {
+    document.getElementById(bichos[klevitz]).onclick = function () {
+      desabilitar_quina(this);
+    };
+    klevitz++;
   }
 };
 
@@ -511,10 +511,6 @@ const inserir_dcm = (elem) => {
 };
 
 const enviar_aposta = (elem) => {
-  let max_length = elem.length + 1;
-  if (elem.length === max_length) {
-    document.write("teste");
-  }
   if (grupo.length === 1) {
     let enviar_texto_historico = document.createElement("p");
     let espaco_historico = document.getElementById("historico_inner");
@@ -524,6 +520,7 @@ const enviar_aposta = (elem) => {
     erase_all();
     document.getElementById(modus_operandi[0]).style.backgroundColor =
       "#f0f1f1";
+    limpar_inserir_dinheiro();
   }
 
   if (duplo.length === 2) {
@@ -535,6 +532,7 @@ const enviar_aposta = (elem) => {
     erase_all();
     document.getElementById(modus_operandi[0]).style.backgroundColor =
       "#f0f1f1";
+    limpar_inserir_dinheiro();
   }
 
   if (terno.length === 3) {
@@ -546,6 +544,7 @@ const enviar_aposta = (elem) => {
     erase_all();
     document.getElementById(modus_operandi[0]).style.backgroundColor =
       "#f0f1f1";
+    limpar_inserir_dinheiro();
   }
 
   if (quadra.length === 4) {
@@ -557,6 +556,7 @@ const enviar_aposta = (elem) => {
     erase_all();
     document.getElementById(modus_operandi[0]).style.backgroundColor =
       "#f0f1f1";
+    limpar_inserir_dinheiro();
   }
 
   if (quina.length === 5) {
@@ -568,6 +568,7 @@ const enviar_aposta = (elem) => {
     erase_all();
     document.getElementById(modus_operandi[0]).style.backgroundColor =
       "#f0f1f1";
+    limpar_inserir_dinheiro();
   }
 };
 
@@ -607,9 +608,12 @@ const inserir_dinheiro = (elem) => {
 };
 
 const limpar_inserir_dinheiro = () => {
-  if (document.getElementById("texto_inserir_dinheiro_bicho") && document.getElementById('inserir_dinheiro_bicho') ) {
+  if (
+    document.getElementById("texto_inserir_dinheiro_bicho") &&
+    document.getElementById("inserir_dinheiro_bicho")
+  ) {
     document.getElementById("texto_inserir_dinheiro_bicho").remove();
-    document.getElementById('inserir_dinheiro_bicho').remove();
+    document.getElementById("inserir_dinheiro_bicho").remove();
   }
 };
 
