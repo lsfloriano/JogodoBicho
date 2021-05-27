@@ -253,7 +253,7 @@ const habilitar_grupo = (elem) => {
     elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
     elem.estado = 1;
     let klevitz = 0;
-    inserir_dinheiro();
+    inserir_dinheiro(grupo);
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         desabilitar_grupo(this);
@@ -264,23 +264,31 @@ const habilitar_grupo = (elem) => {
 };
 
 const desabilitar_grupo = (elem) => {
-  if (grupo.length > 0) {
-    if (elem.estado == 1) {
-      elem.style.webkitFilter = "grayscale(0) blur(0)";
-      elem.style.filter = "grayscale(0%) blur(0)";
-      elem.estado = 0;
-      grupo.shift();
-      let klevitz = 0;
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < grupo.length; i++) {
+      if (grupo[i] === elem.id) {
+        grupo.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (grupo.length == 0) {
       while (klevitz < 25) {
         document.getElementById(bichos[klevitz]).onclick = function () {
           habilitar_grupo(this);
         };
         klevitz++;
       }
-    } else {
-      elem.onclick = "";
-      habilitar_grupo(elem);
     }
+  } else {
+    elem.onclick = "";
+    habilitar_grupo(elem);
   }
 };
 
@@ -294,16 +302,16 @@ const habilitar_duplo = (elem) => {
     console.log(duplo.length);
   }
 
-    let klevitz = 0;
-    if (duplo.length === 2) {
-      inserir_dinheiro();
-    }
-    while (klevitz < 25) {
-      document.getElementById(bichos[klevitz]).onclick = function () {
-        desabilitar_duplo(this);
-      };
-      klevitz++;
-    }
+  let klevitz = 0;
+  if (duplo.length === 2) {
+    inserir_dinheiro(duplo);
+  }
+  while (klevitz < 25) {
+    document.getElementById(bichos[klevitz]).onclick = function () {
+      desabilitar_duplo(this);
+    };
+    klevitz++;
+  }
 };
 
 const desabilitar_duplo = (elem) => {
@@ -345,16 +353,16 @@ const habilitar_terno = (elem) => {
     console.log(elem.vlrArray);
   }
 
-    let klevitz = 0;
-    if (terno.length === 3) {
-      inserir_dinheiro();
-    }
-    while (klevitz < 25) {
-      document.getElementById(bichos[klevitz]).onclick = function () {
-        desabilitar_terno(this);
-      };
-      klevitz++;
-    }
+  let klevitz = 0;
+  if (terno.length === 3) {
+    inserir_dinheiro(terno);
+  }
+  while (klevitz < 25) {
+    document.getElementById(bichos[klevitz]).onclick = function () {
+      desabilitar_terno(this);
+    };
+    klevitz++;
+  }
 };
 
 const desabilitar_terno = (elem) => {
@@ -396,16 +404,16 @@ const habilitar_quadra = (elem) => {
     console.log(elem.vlrArray);
   }
 
-    let klevitz = 0;
-    if (quadra.length === 4) {
-      inserir_dinheiro();
-    }
-    while (klevitz < 25) {
-      document.getElementById(bichos[klevitz]).onclick = function () {
-        desabilitar_quadra(this);
-      };
-      klevitz++;
-    }
+  let klevitz = 0;
+  if (quadra.length === 4) {
+    inserir_dinheiro(quadra);
+  }
+  while (klevitz < 25) {
+    document.getElementById(bichos[klevitz]).onclick = function () {
+      desabilitar_quadra(this);
+    };
+    klevitz++;
+  }
 };
 
 const desabilitar_quadra = (elem) => {
@@ -448,7 +456,7 @@ const habilitar_quina = (elem) => {
 
   let klevitz = 0;
   if (quina.length === 5) {
-    inserir_dinheiro();
+    inserir_dinheiro(quina);
   }
   while (klevitz < 25) {
     document.getElementById(bichos[klevitz]).onclick = function () {
@@ -461,7 +469,7 @@ const habilitar_quina = (elem) => {
 const desabilitar_quina = (elem) => {
   if (elem.estado == 1) {
     elem.style.webkitFilter = "grayscale(0) blur(0)";
-    elem.style.filter = "grayscale(0%) blur(0)";
+    elem.style.filter = "grayscale(0) blur(0)";
     elem.estado = 0;
 
     for (let i = 0; i < quina.length; i++) {
@@ -508,6 +516,7 @@ const inserir_dcm = (elem) => {
   criar_input.type = "number";
   criar_input.placeholder = `Insira a ${elem.value}`;
   carlos.appendChild(criar_input);
+  limpar_inserir_dinheiro();
 };
 
 const enviar_aposta = (elem) => {
@@ -517,9 +526,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${grupo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
-    erase_all();
-    document.getElementById(modus_operandi[0]).style.backgroundColor =
-      "#f0f1f1";
+    erase_all(grupo);
     limpar_inserir_dinheiro();
   }
 
@@ -529,9 +536,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${duplo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
-    erase_all();
-    document.getElementById(modus_operandi[0]).style.backgroundColor =
-      "#f0f1f1";
+    erase_all(duplo);
     limpar_inserir_dinheiro();
   }
 
@@ -541,9 +546,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${terno}.`;
     espaco_historico.appendChild(enviar_texto_historico);
-    erase_all();
-    document.getElementById(modus_operandi[0]).style.backgroundColor =
-      "#f0f1f1";
+    erase_all(terno);
     limpar_inserir_dinheiro();
   }
 
@@ -553,9 +556,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quadra}.`;
     espaco_historico.appendChild(enviar_texto_historico);
-    erase_all();
-    document.getElementById(modus_operandi[0]).style.backgroundColor =
-      "#f0f1f1";
+    erase_all(quadra);
     limpar_inserir_dinheiro();
   }
 
@@ -565,28 +566,15 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.className = "texto_inner_historico";
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quina}.`;
     espaco_historico.appendChild(enviar_texto_historico);
-    erase_all();
-    document.getElementById(modus_operandi[0]).style.backgroundColor =
-      "#f0f1f1";
+    erase_all(quina);
     limpar_inserir_dinheiro();
   }
 };
 
-const erase_all = () => {
-  for (let xerecard = 0; xerecard < grupo.length; xerecard++) {
-    document.getElementById(grupo[xerecard]).style = "grayscale(0)";
-  }
-  for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
-    document.getElementById(duplo[xerecard]).style = "grayscale(0)";
-  }
-  for (let xerecard = 0; xerecard < terno.length; xerecard++) {
-    document.getElementById(terno[xerecard]).style = "grayscale(0)";
-  }
-  for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
-    document.getElementById(quadra[xerecard]).style = "grayscale(0)";
-  }
-  for (let xerecard = 0; xerecard < quina.length; xerecard++) {
-    document.getElementById(quina[xerecard]).style = "grayscale(0)";
+const erase_all = (elem) => {
+  for (let xerecard = 0; xerecard < elem.length; xerecard++) {
+    document.getElementById(elem[xerecard]).style = "grayscale(0) blur(0)";
+    document.getElementById(elem[xerecard]).estado = 0;
   }
   grupo = [];
   duplo = [];
@@ -596,6 +584,11 @@ const erase_all = () => {
 };
 
 const inserir_dinheiro = (elem) => {
+  tamanhoMaximo = elem.length + 1;
+  if (tamanhoMaximo) {
+    console.log("pirurpiruprripriuro");
+    limpar_inserir_dinheiro();
+  }
   let labelzona = document.createElement("label");
   labelzona.id = "texto_inserir_dinheiro_bicho";
   labelzona.innerHTML = "Aposta R$:";
