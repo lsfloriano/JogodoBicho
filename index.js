@@ -99,11 +99,12 @@ const bichos_exec = () => {
     i++;
   }
 
-  let dinheiro = document.createElement("p");
+  let dinheiro_display = document.createElement("p");
   let header = document.getElementById("cabecalho");
-  dinheiro.className = "dinheiro";
-  dinheiro.innerHTML = "R$ " + 100;
-  header.appendChild(dinheiro);
+  dinheiro_display.id = "dinheiro";
+  let dinheiro_quant = 100;
+  dinheiro_display.innerHTML = "R$ " + dinheiro_quant;
+  header.appendChild(dinheiro_display);
 };
 
 let modus_operandi = [];
@@ -596,6 +597,8 @@ const inserir_dinheiro = (elem) => {
   let input = document.createElement("input");
   input.type = "number";
   input.id = "inserir_dinheiro_bicho";
+  // let subtracao = document.getElementById("inserir_dinheiro_bicho").value;
+  // document.getElementById(dinheiro_quant) -= subtracao;
   menu.appendChild(labelzona);
   menu.appendChild(input);
 };
