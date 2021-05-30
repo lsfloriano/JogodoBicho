@@ -312,6 +312,11 @@ body {
   height: 10vh;
 }
 
+#mensagem_erro_input{
+  color: #dc3545;
+  margin-top: 1.5vh;
+}
+
 @keyframes aparecer_nome {
   from {
     display: none;

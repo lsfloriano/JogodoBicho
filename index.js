@@ -60,6 +60,8 @@ let terno = [];
 let quadra = [];
 let quina = [];
 
+let dinheiro_quant = 100;
+
 const bichos_exec = () => {
   let i = 0;
 
@@ -102,9 +104,16 @@ const bichos_exec = () => {
   let dinheiro_display = document.createElement("p");
   let header = document.getElementById("cabecalho");
   dinheiro_display.id = "dinheiro";
-  let dinheiro_quant = 100;
   dinheiro_display.innerHTML = "R$ " + dinheiro_quant;
   header.appendChild(dinheiro_display);
+};
+
+const sistema_dinheiro = () => {
+  let subtracao = document.getElementById("inserir_dinheiro_bicho").value;
+  let subtracao_real = parseInt(subtracao);
+  let tio_vera = document.getElementById("dinheiro");
+  tio_vera.innerHTML = "R$ " + (dinheiro_quant - subtracao_real);
+  dinheiro_quant = dinheiro_quant - subtracao_real;
 };
 
 let modus_operandi = [];
@@ -521,6 +530,21 @@ const inserir_dcm = (elem) => {
 };
 
 const enviar_aposta = (elem) => {
+  let input = document.getElementById("inserir_dinheiro_bicho");
+
+  if(document.getElementById('mensagem_erro_input')){
+    document.getElementById('mensagem_erro_input').remove();
+  }
+  
+  if ((input.value === "" || input.value == 0 || input.value > dinheiro_quant)) {
+    let mensagem_erro = document.createElement('p');
+    mensagem_erro.id = 'mensagem_erro_input';
+    mensagem_erro.innerHTML = 'Número inválido ou maior que o atual.';
+    let menu = document.getElementById('tipos-aposta');
+    menu.appendChild(mensagem_erro);
+    return false;
+  }
+
   if (grupo.length === 1) {
     let enviar_texto_historico = document.createElement("p");
     let espaco_historico = document.getElementById("historico_inner");
@@ -528,6 +552,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${grupo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
     erase_all(grupo);
+    sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
 
@@ -538,6 +563,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${duplo}.`;
     espaco_historico.appendChild(enviar_texto_historico);
     erase_all(duplo);
+    sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
 
@@ -548,6 +574,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${terno}.`;
     espaco_historico.appendChild(enviar_texto_historico);
     erase_all(terno);
+    sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
 
@@ -558,6 +585,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quadra}.`;
     espaco_historico.appendChild(enviar_texto_historico);
     erase_all(quadra);
+    sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
 
@@ -568,6 +596,7 @@ const enviar_aposta = (elem) => {
     enviar_texto_historico.innerHTML = `Você apostou x reais em: ${quina}.`;
     espaco_historico.appendChild(enviar_texto_historico);
     erase_all(quina);
+    sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
 };
@@ -597,8 +626,20 @@ const inserir_dinheiro = (elem) => {
   let input = document.createElement("input");
   input.type = "number";
   input.id = "inserir_dinheiro_bicho";
-  // let subtracao = document.getElementById("inserir_dinheiro_bicho").value;
-  // document.getElementById(dinheiro_quant) -= subtracao;
+  if (input.which === 48) {
+    return false;
+  }
+  input.onkeydown = function (e) {
+    if (
+      !(
+        (e.keyCode > 95 && e.keyCode < 106) ||
+        (e.keyCode > 47 && e.keyCode < 58) ||
+        e.keyCode == 8
+      )
+    ) {
+      return false;
+    }
+  };
   menu.appendChild(labelzona);
   menu.appendChild(input);
 };
