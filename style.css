@@ -27,14 +27,58 @@ body {
 }
 
 #dinheiro {
-  padding-right: 2vh;
+  margin-left: 167vh;
 }
 
 #titulo {
   padding-left: 2vh;
 }
 
-.master {
+#adicionar {
+  margin-right: 2vh;
+  margin-bottom: 0.1vh;
+  border-radius: 0.5vh;
+  background-color: #2ecc71;
+  color: whitesmoke;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  border: none;
+}
+
+#div_adicionar{
+  background-color: rgba(127, 140, 141,1);
+  width: 28.7vh;
+  padding: 2vh;
+  top: 6vh;
+  left: 183.4vh;
+  border-radius: 0.3vh;
+}
+
+#claudinho{
+  margin-top: 2vh;
+  width: 100%;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#botao_xis{
+  position: absolute;
+  left:27.8vh;
+  top: 1.4vh;
+  padding: 0.5vh 1vh 0.5vh;
+  text-align: center;
+  background-color: rgba(231, 76, 60,1.0);
+  color: whitesmoke;
+  border: none;
+}
+
+#pafuncio{
+  margin-top: 0.5vh;
+  width: 29.2vh;
+}
+
+#master {
   display: flex;
   justify-content: space-between;
   margin-top: 6vh;
@@ -312,9 +356,15 @@ body {
   height: 10vh;
 }
 
-#mensagem_erro_input{
+#mensagem_erro_input {
   color: #dc3545;
+  text-align: center;
   margin-top: 1.5vh;
+}
+
+#mensagem_erro_adicionar{
+  margin-top: 1vh;
+  text-align: center;
 }
 
 @keyframes aparecer_nome {

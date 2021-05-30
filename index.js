@@ -61,6 +61,7 @@ let quadra = [];
 let quina = [];
 
 let dinheiro_quant = 100;
+let dinheiro_max = 9999;
 
 const bichos_exec = () => {
   let i = 0;
@@ -106,6 +107,14 @@ const bichos_exec = () => {
   dinheiro_display.id = "dinheiro";
   dinheiro_display.innerHTML = "R$ " + dinheiro_quant;
   header.appendChild(dinheiro_display);
+
+  let botao_adicionar = document.createElement("button");
+  botao_adicionar.id = "adicionar";
+  botao_adicionar.innerHTML = "+";
+  botao_adicionar.onclick = function () {
+    adicionar_dinheiro();
+  };
+  header.appendChild(botao_adicionar);
 };
 
 const sistema_dinheiro = () => {
@@ -114,6 +123,78 @@ const sistema_dinheiro = () => {
   let tio_vera = document.getElementById("dinheiro");
   tio_vera.innerHTML = "R$ " + (dinheiro_quant - subtracao_real);
   dinheiro_quant = dinheiro_quant - subtracao_real;
+};
+
+const adicionar_dinheiro = () => {
+  if (document.getElementById("div_adicionar")) {
+    document.getElementById("div_adicionar").remove();
+  }
+
+  let divzona = document.createElement("div");
+  divzona.id = "div_adicionar";
+  let xis = document.createElement("button");
+  xis.id = "botao_xis";
+  xis.innerHTML = "x";
+  xis.onclick = function () {
+    limpar_div_adicionar();
+  };
+  let texto = document.createElement("label");
+  texto.id = "texto_input_adicionar";
+  texto.innerHTML = "Insira a quantidade:";
+  let input = document.createElement("input");
+  input.id = "claudinho";
+  input.type = "number";
+  if (input.which === 48) {
+    return false;
+  }
+  input.onkeydown = function (e) {
+    if (
+      !(
+        (e.keyCode > 95 && e.keyCode < 106) ||
+        (e.keyCode > 47 && e.keyCode < 58) ||
+        e.keyCode == 8
+      )
+    ) {
+      return false;
+    }
+  };
+  let pafuncio = document.createElement("button");
+  pafuncio.id = "pafuncio";
+  pafuncio.innerHTML = "Adicionar";
+  pafuncio.onclick = function () {
+    alcione();
+  };
+  divzona.style.position = "absolute";
+  divzona.style.left = "55";
+  divzona.style.right = "43";
+  document.getElementById("master").appendChild(divzona);
+  divzona.appendChild(texto);
+  texto.appendChild(xis);
+  texto.appendChild(input);
+  divzona.appendChild(pafuncio);
+};
+
+const limpar_div_adicionar = () => {
+  document.getElementById("div_adicionar").remove();
+};
+
+const alcione = () => {
+  let input = document.getElementById("claudinho");
+  let dinheiro_display = document.getElementById("dinheiro");
+
+  if (document.getElementById("mensagem_erro_adicionar")) {
+    document.getElementById("mensagem_erro_adicionar").remove();
+  }
+  if (input.value === "" || input.value == 0 || input.value > dinheiro_max) {
+    let mensagem_erro = document.createElement("p");
+    mensagem_erro.id = "mensagem_erro_adicionar";
+    mensagem_erro.innerHTML = "Número inválido ou maior que o limite.";
+    document.getElementById("div_adicionar").appendChild(mensagem_erro);
+    return false;
+  }
+  valor_real = parseInt(input.value);
+  dinheiro_display.innerHTML = "R$" + (dinheiro_quant + valor_real);
+  dinheiro_quant += valor_real;
 };
 
 let modus_operandi = [];
@@ -532,15 +613,15 @@ const inserir_dcm = (elem) => {
 const enviar_aposta = (elem) => {
   let input = document.getElementById("inserir_dinheiro_bicho");
 
-  if(document.getElementById('mensagem_erro_input')){
-    document.getElementById('mensagem_erro_input').remove();
+  if (document.getElementById("mensagem_erro_input")) {
+    document.getElementById("mensagem_erro_input").remove();
   }
-  
-  if ((input.value === "" || input.value == 0 || input.value > dinheiro_quant)) {
-    let mensagem_erro = document.createElement('p');
-    mensagem_erro.id = 'mensagem_erro_input';
-    mensagem_erro.innerHTML = 'Número inválido ou maior que o atual.';
-    let menu = document.getElementById('tipos-aposta');
+
+  if (input.value === "" || input.value == 0 || input.value > dinheiro_quant) {
+    let mensagem_erro = document.createElement("p");
+    mensagem_erro.id = "mensagem_erro_input";
+    mensagem_erro.innerHTML = "Número inválido ou maior que o atual.";
+    let menu = document.getElementById("tipos-aposta");
     menu.appendChild(mensagem_erro);
     return false;
   }
