@@ -27,7 +27,8 @@ body {
 }
 
 #dinheiro {
-  margin-left: 167vh;
+  /* position: relative; */
+  margin-left: 152vh;
 }
 
 #titulo {
@@ -35,6 +36,8 @@ body {
 }
 
 #adicionar {
+  height: 3.6vh;
+  width: 3vh;
   margin-right: 2vh;
   margin-bottom: 0.1vh;
   border-radius: 0.5vh;
@@ -45,16 +48,16 @@ body {
   border: none;
 }
 
-#div_adicionar{
-  background-color: rgba(127, 140, 141,1);
+#div_adicionar {
+  background-color: rgba(127, 140, 141, 1);
   width: 28.7vh;
   padding: 2vh;
-  top: 6vh;
-  left: 183.4vh;
+  margin-left: 167vh;
+  margin-top: -5vh;
   border-radius: 0.3vh;
 }
 
-#claudinho{
+#claudinho {
   margin-top: 2vh;
   width: 100%;
   -webkit-appearance: textfield;
@@ -62,18 +65,18 @@ body {
   -moz-appearance: textfield;
 }
 
-#botao_xis{
+#botao_xis {
   position: absolute;
-  left:27.8vh;
+  left: 27.8vh;
   top: 1.4vh;
   padding: 0.5vh 1vh 0.5vh;
   text-align: center;
-  background-color: rgba(231, 76, 60,1.0);
+  background-color: rgba(231, 76, 60, 1);
   color: whitesmoke;
   border: none;
 }
 
-#pafuncio{
+#pafuncio {
   margin-top: 0.5vh;
   width: 29.2vh;
 }
@@ -362,7 +365,7 @@ body {
   margin-top: 1.5vh;
 }
 
-#mensagem_erro_adicionar{
+#mensagem_erro_adicionar {
   margin-top: 1vh;
   text-align: center;
 }
@@ -379,26 +382,51 @@ body {
 }
 
 @media screen and (orientation: portrait) {
-  .historico {
+  #historico {
     display: none;
   }
-  .master {
+  #master {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .tabela-bicho {
-    width: 80%;
-    height: 40%;
-    margin-bottom: 2vh;
+  #tabela-bicho {
+    width: 53vh;
+    height: 53vh;
+    margin-bottom: 4.5vh;
   }
 
-  .menu-apostas {
-    width: 80%;
+  .bicho-container {
+    width: 10.6vh;
+    height: 8.5vh;
+    background-color: brown;
+  }
+
+  #dezenas_bichos{
+    margin: 0;
+  }
+
+  .nome_bicho{
+    width: max-content;
+    margin: 0;
+  }
+  
+  #menu-apostas {
+    width: 50vh;
     padding-bottom: 2vh;
   }
 
   #aposta {
-    height: 40%;
+    height: 40vh;
+  }
+
+  #dinheiro {
+    margin: 0;
+    margin-left: 4.5vh;
+  }
+
+  #div_adicionar {
+    margin: 0;
+    top: -0.2vh;
   }
 }
