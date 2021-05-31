@@ -392,28 +392,47 @@ body {
   }
   #tabela-bicho {
     width: 53vh;
-    height: 53vh;
-    margin-bottom: 4.5vh;
+    height: 60vh;
   }
 
   .bicho-container {
     width: 10.6vh;
-    height: 8.5vh;
-    background-color: brown;
+    height: 10vh;
   }
 
-  #dezenas_bichos{
-    margin: 0;
+  .dezenas_bichos {
+    margin-left: 6vh;
+    font-size: 2vh;
   }
 
-  .nome_bicho{
-    width: max-content;
-    margin: 0;
+  .nome_bicho {
+    width: 6vh;
+    font-size: 2vh;
+    margin-top: 7.72vh;
   }
-  
+
+  .numero_grupo_bicho {
+    width: 2.5vh;
+    height: 2.5vh;
+    font-size: 2vh;
+    margin-top: 0.5vh;
+    margin-left: 0.5vh;
+    text-align: center;
+  }
+
   #menu-apostas {
     width: 50vh;
-    padding-bottom: 2vh;
+    margin-top: 2.5vh;
+  }
+
+  #tipos-aposta{
+    width: 50vh;
+  }
+
+  .btn-tipo-aposta {
+    flex-grow: 1;
+    width: 10vh;
+    height: 8vh;
   }
 
   #aposta {
@@ -425,8 +444,40 @@ body {
     margin-left: 4.5vh;
   }
 
+  #adicionar{
+    font-size: 2vh;
+    text-align: center;
+  }
+
   #div_adicionar {
-    margin: 0;
-    top: -0.2vh;
+    margin: 0 auto;
+    font-size: 2vh;
+  }
+
+  #pafuncio{
+    font-size: 2vh;
+  }
+
+  #botao_xis{
+    font-size: 1.5vh;
+  }
+
+  #claudinho{
+    height: 2vh;
+    width: 28.91vh;
+    font-size: 2vh
+  }
+
+  #mensagem_erro_input{
+    font-size: 2vh;
+  }
+
+  #inserir_dinheiro_bicho{
+    width: 34.3vh;
+    margin-left: 2vh;
+  }
+
+  #texto_inserir_dinheiro_bicho{
+    margin-top: 2.4vh;
   }
 }
