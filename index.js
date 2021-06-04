@@ -59,6 +59,7 @@ let duplo = [];
 let terno = [];
 let quadra = [];
 let quina = [];
+let pulo = [];
 
 let dinheiro_quant = 100;
 let dinheiro_max = 9999;
@@ -195,11 +196,11 @@ const alcione = () => {
   valor_real = parseInt(input.value);
   dinheiro_display.innerHTML = "R$" + (dinheiro_quant + valor_real);
   dinheiro_quant += valor_real;
-  if(dinheiro_quant > dinheiro_max){
-    console.log('O limite de dinheiro foi atingido. Cu');
-    console.log('dinheiro antes da operação:' + dinheiro_quant);
+  if (dinheiro_quant > dinheiro_max) {
+    console.log("O limite de dinheiro foi atingido. Cu");
+    console.log("dinheiro antes da operação:" + dinheiro_quant);
     dinheiro_quant = dinheiro_max;
-    console.log('dinheiro após a operação:' + dinheiro_quant)
+    console.log("dinheiro após a operação:" + dinheiro_quant);
     dinheiro_display.innerHTML = "R$" + dinheiro_quant;
   }
 };
@@ -229,10 +230,14 @@ const paulinho_gogo = (elem) => {
     for (let xerecard = 0; xerecard < quina.length; xerecard++) {
       document.getElementById(quina[xerecard]).style = "grayscale(0)";
     }
+    for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+      document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    }
     duplo = [];
     terno = [];
     quadra = [];
     quina = [];
+    pulo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_grupo(this);
@@ -254,10 +259,14 @@ const paulinho_gogo = (elem) => {
     for (let xerecard = 0; xerecard < quina.length; xerecard++) {
       document.getElementById(quina[xerecard]).style = "grayscale(0)";
     }
+    for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+      document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    }
     terno = [];
     quadra = [];
     quina = [];
     grupo = [];
+    pulo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_duplo(this);
@@ -280,10 +289,14 @@ const paulinho_gogo = (elem) => {
     for (let xerecard = 0; xerecard < quina.length; xerecard++) {
       document.getElementById(quina[xerecard]).style = "grayscale(0)";
     }
+    for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+      document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    }
     duplo = [];
     quadra = [];
     quina = [];
     grupo = [];
+    pulo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_terno(this);
@@ -306,10 +319,14 @@ const paulinho_gogo = (elem) => {
     for (let xerecard = 0; xerecard < quina.length; xerecard++) {
       document.getElementById(quina[xerecard]).style = "grayscale(0)";
     }
+    for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+      document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    }
     duplo = [];
     terno = [];
     quina = [];
     grupo = [];
+    pulo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_quadra(this);
@@ -331,13 +348,46 @@ const paulinho_gogo = (elem) => {
     for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
       document.getElementById(quadra[xerecard]).style = "grayscale(0)";
     }
+    for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+      document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    }
     duplo = [];
     terno = [];
     quadra = [];
     grupo = [];
+    pulo = [];
     while (klevitz < 25) {
       document.getElementById(bichos[klevitz]).onclick = function () {
         habilitar_quina(this);
+      };
+      klevitz++;
+    }
+  }
+  if (elem.id === "pulo") {
+    let klevitz = 0;
+    try {
+      document.getElementById(grupo[klevitz]).style.filter = "grayscale(0)";
+    } catch {}
+    for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+      document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+      document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+      document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    }
+    for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+      document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    }
+    duplo = [];
+    terno = [];
+    quadra = [];
+    quina = [];
+    grupo = [];
+    while (klevitz < 25) {
+      document.getElementById(bichos[klevitz]).onclick = function () {
+        habilitar_pulo(this);
       };
       klevitz++;
     }
@@ -593,6 +643,56 @@ const desabilitar_quina = (elem) => {
   }
 };
 
+const habilitar_pulo = (elem) => {
+  if (pulo.length < 2) {
+    pulo.push(elem.id);
+    elem.style.webkitFilter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.style.filter = "grayscale(100%) blur(0.7987220447284346vh)";
+    elem.estado = 1;
+    elem.vlrArray = pulo.length - 1;
+  }
+
+  let klevitz = 0;
+  if (pulo.length === 2) {
+    inserir_dinheiro(pulo);
+  }
+  while (klevitz < 25) {
+    document.getElementById(bichos[klevitz]).onclick = function () {
+      desabilitar_pulo(this);
+    };
+    klevitz++;
+  }
+};
+
+const desabilitar_pulo = (elem) => {
+  if (elem.estado == 1) {
+    elem.style.webkitFilter = "grayscale(0) blur(0)";
+    elem.style.filter = "grayscale(0) blur(0)";
+    elem.estado = 0;
+
+    for (let i = 0; i < pulo.length; i++) {
+      if (pulo[i] === elem.id) {
+        pulo.splice(i, 1);
+      }
+    }
+
+    elem.vlrArray = 0;
+    let klevitz = 0;
+
+    if (pulo.length == 0) {
+      while (klevitz < 25) {
+        document.getElementById(bichos[klevitz]).onclick = function () {
+          habilitar_pulo(this);
+        };
+        klevitz++;
+      }
+    }
+  } else {
+    elem.onclick = "";
+    habilitar_pulo(elem);
+  }
+};
+
 const jubileu = () => {
   if (document.getElementById("xerupita")) {
     document.getElementById("xerupita").remove();
@@ -687,6 +787,24 @@ const enviar_aposta = (elem) => {
     sistema_dinheiro();
     limpar_inserir_dinheiro();
   }
+
+  if (pulo.length === 2) {
+    let enviar_texto_historico = document.createElement("p");
+    let espaco_historico = document.getElementById("historico_inner");
+    enviar_texto_historico.className = "texto_inner_historico";
+    enviar_texto_historico.innerHTML = `Você apostou x reais em: ${pulo}.`;
+    espaco_historico.appendChild(enviar_texto_historico);
+    if (document.getElementById("opcao_inverter").estado == 1) {
+      let enviar_texto_invertida_historico = document.createElement("p");
+      enviar_texto_invertida_historico.className = "texto_inner_historico";
+      enviar_texto_invertida_historico.innerHTML = `Você apostou x reais no pulo invertido: ${pulo.slice().reverse()}.`;
+      espaco_historico.appendChild(enviar_texto_invertida_historico);
+      sistema_dinheiro();
+    }
+    erase_all(pulo);
+    sistema_dinheiro();
+    limpar_inserir_dinheiro();
+  }
 };
 
 const erase_all = (elem) => {
@@ -699,6 +817,7 @@ const erase_all = (elem) => {
   terno = [];
   quadra = [];
   quina = [];
+  pulo = [];
 };
 
 const inserir_dinheiro = (elem) => {
@@ -714,6 +833,22 @@ const inserir_dinheiro = (elem) => {
   let input = document.createElement("input");
   input.type = "number";
   input.id = "inserir_dinheiro_bicho";
+  let mittagessen = document.createElement("input");
+  mittagessen.type = "checkbox";
+  mittagessen.id = "opcao_inverter";
+  mittagessen.style.display = "none";
+  mittagessen.onclick = function () {
+    mozambique(pulo);
+  };
+  let label_mittagessen = document.createElement("label");
+  label_mittagessen.id = "label_inverter";
+  label_mittagessen.style.display = "none";
+  label_mittagessen.innerHTML = "Inverter:";
+  if (elem === pulo) {
+    console.log("Pulo ativado");
+    mittagessen.style.display = "flex";
+    label_mittagessen.style.display = "flex";
+  }
   if (input.which === 48) {
     return false;
   }
@@ -730,15 +865,26 @@ const inserir_dinheiro = (elem) => {
   };
   menu.appendChild(labelzona);
   menu.appendChild(input);
+  label_mittagessen.appendChild(mittagessen);
+  menu.appendChild(label_mittagessen);
+};
+
+const mozambique = (elem) => {
+  document.getElementById("opcao_inverter").estado = 1;
+  let invertida = elem.slice().reverse();
+  console.log("Essa função funcionou e o valor da array é:" + invertida);
+  return invertida;
 };
 
 const limpar_inserir_dinheiro = () => {
   if (
     document.getElementById("texto_inserir_dinheiro_bicho") &&
-    document.getElementById("inserir_dinheiro_bicho")
+    document.getElementById("inserir_dinheiro_bicho") &&
+    document.getElementById("label_inverter")
   ) {
     document.getElementById("texto_inserir_dinheiro_bicho").remove();
     document.getElementById("inserir_dinheiro_bicho").remove();
+    document.getElementById("label_inverter").remove();
   }
 };
 

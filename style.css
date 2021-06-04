@@ -294,6 +294,15 @@ body {
   word-break: break-all;
 }
 
+#opcao_inverter{
+  margin-top: 0.3em;
+  margin-left: 0.5em;
+}
+
+#label_inverter{
+  margin-top: 0.5em;
+}
+
 #botao-apostar {
   cursor: pointer;
   padding: 1vh;
