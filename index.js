@@ -195,6 +195,13 @@ const alcione = () => {
   valor_real = parseInt(input.value);
   dinheiro_display.innerHTML = "R$" + (dinheiro_quant + valor_real);
   dinheiro_quant += valor_real;
+  if(dinheiro_quant > dinheiro_max){
+    console.log('O limite de dinheiro foi atingido. Cu');
+    console.log('dinheiro antes da operação:' + dinheiro_quant);
+    dinheiro_quant = dinheiro_max;
+    console.log('dinheiro após a operação:' + dinheiro_quant)
+    dinheiro_display.innerHTML = "R$" + dinheiro_quant;
+  }
 };
 
 let modus_operandi = [];
