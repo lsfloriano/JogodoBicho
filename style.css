@@ -27,8 +27,8 @@ body {
 }
 
 #dinheiro {
-  /* position: relative; */
-  margin-left: 152vh;
+  margin-left: 55.5em;
+  white-space: nowrap;
 }
 
 #titulo {
@@ -37,7 +37,7 @@ body {
 
 #adicionar {
   height: 3.6vh;
-  width: 3vh;
+  width: 1.5%;
   margin-right: 2vh;
   margin-bottom: 0.1vh;
   border-radius: 0.5vh;
@@ -50,10 +50,10 @@ body {
 
 #div_adicionar {
   background-color: rgba(127, 140, 141, 1);
-  width: 28.7vh;
-  padding: 2vh;
-  margin-left: 167vh;
-  margin-top: -5vh;
+  width: 13vw;
+  padding: 1em;
+  left: 84vw;
+  top: 8vh;
   border-radius: 0.3vh;
 }
 
@@ -67,9 +67,9 @@ body {
 
 #botao_xis {
   position: absolute;
-  left: 27.8vh;
-  top: 1.4vh;
-  padding: 0.5vh 1vh 0.5vh;
+  left: 13vw;
+  top: 2.1vh;
+  padding: 0.2em 0.4em;
   text-align: center;
   background-color: rgba(231, 76, 60, 1);
   color: whitesmoke;
@@ -78,7 +78,7 @@ body {
 
 #pafuncio {
   margin-top: 0.5vh;
-  width: 29.2vh;
+  width: 101%;
 }
 
 #master {
@@ -441,7 +441,7 @@ body {
 
   #dinheiro {
     margin: 0;
-    margin-left: 4.5vh;
+    margin-left: 5vh;
   }
 
   #adicionar{
