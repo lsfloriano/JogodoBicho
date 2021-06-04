@@ -708,6 +708,7 @@ const inserir_dcm = (elem) => {
 
   let carlos = document.getElementById("tipos-aposta");
   let criar_input = document.createElement("input");
+  so_numeros(criar_input);
   criar_input.id = "xerupita";
   criar_input.maxlength = 3;
   criar_input.min = 0;
@@ -887,5 +888,22 @@ const limpar_inserir_dinheiro = () => {
     document.getElementById("label_inverter").remove();
   }
 };
+
+const so_numeros = (elem) =>{
+  if (elem.which === 48) {
+    return false;
+  }
+  elem.onkeydown = function (e) {
+    if (
+      !(
+        (e.keyCode > 95 && e.keyCode < 106) ||
+        (e.keyCode > 47 && e.keyCode < 58) ||
+        e.keyCode == 8
+      )
+    ) {
+      return false;
+    }
+  };
+}
 
 window.onload = () => bichos_exec();
