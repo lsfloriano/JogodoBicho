@@ -15,6 +15,7 @@
     <title>Jogo do Bicho Simulator</title>
     <header id="cabecalho">
       <p id="titulo">Jogo do Bicho Simulator</p>
+      <div id="dinheiro"></div>
     </header>
     <div id="master">
       <div id="historico">
@@ -76,21 +77,21 @@
             class="btn-tipo-aposta"
             id="dezena"
             value="Dezena"
-            onclick="inserir_dcm(this)"
+            onclick="inserir_dcm(this), inserir_dinheiro(this.value), erase_all()"
           />
           <input
             type="button"
             class="btn-tipo-aposta"
             value="Centena"
             id="centena"
-            onclick="inserir_dcm(this)"
+            onclick="inserir_dcm(this), inserir_dinheiro(this.value), erase_all()"
           />
           <input
             type="button"
             class="btn-tipo-aposta"
             value="Milhar"
             id="milhar"
-            onclick="inserir_dcm(this)"
+            onclick="inserir_dcm(this), inserir_dinheiro(this.value), erase_all()"
           />
         </div>
         <input

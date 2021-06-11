@@ -104,10 +104,10 @@ const bichos_exec = () => {
   }
 
   let dinheiro_display = document.createElement("p");
-  let header = document.getElementById("cabecalho");
-  dinheiro_display.id = "dinheiro";
+  let dinheiro = document.getElementById("dinheiro");
+  dinheiro_display.id = "dinheiro1";
   dinheiro_display.innerHTML = "R$ " + dinheiro_quant;
-  header.appendChild(dinheiro_display);
+  dinheiro.appendChild(dinheiro_display);
 
   let botao_adicionar = document.createElement("button");
   botao_adicionar.id = "adicionar";
@@ -115,7 +115,7 @@ const bichos_exec = () => {
   botao_adicionar.onclick = function () {
     adicionar_dinheiro();
   };
-  header.appendChild(botao_adicionar);
+  dinheiro.appendChild(botao_adicionar);
 };
 
 const sistema_dinheiro = () => {
@@ -720,19 +720,21 @@ const inserir_dcm = (elem) => {
       if (this.value.length == 2) return false;
     };
     let dezena = document.getElementById("dezena");
-    enviar_aposta(dezena);
+    pre_enviar_aposta(dezena.value);
   }
   if (elem.id == "centena") {
     criar_input.onkeypress = function () {
       if (this.value.length == 3) return false;
     };
-    enviar_aposta();
+    let centena = document.getElementById("centena");
+    pre_enviar_aposta(centena.value);
   }
   if (elem.id == "milhar") {
     criar_input.onkeypress = function () {
       if (this.value.length == 4) return false;
     };
-    enviar_aposta();
+    let milhar = document.getElementById("milhar");
+    pre_enviar_aposta(milhar.value);
   }
   criar_input.maxlength = 3;
   criar_input.type = "number";
@@ -741,7 +743,26 @@ const inserir_dcm = (elem) => {
   limpar_inserir_dinheiro();
 };
 
-const enviar_aposta = (elem) => {
+const pre_enviar_aposta = (val) => {
+  switch (val) {
+    case "Dezena":
+      resultado = "Dezena";
+      break;
+    case "Centena":
+      resultado = "Centena";
+      break;
+    case "Milhar":
+      resultado = "Milhar";
+      break;
+    default:
+      break;
+  }
+
+  return resultado;
+};
+
+const enviar_aposta = (jobler) => {
+  console.log(jobler);
   let enviar_texto_historico = document.createElement("p");
   let espaco_historico = document.getElementById("historico_inner");
   enviar_texto_historico.className = "texto_inner_historico";
@@ -752,44 +773,54 @@ const enviar_aposta = (elem) => {
     document.getElementById("mensagem_erro_input").remove();
   }
 
+  let mensagem_erro = document.createElement("p");
+  mensagem_erro.id = "mensagem_erro_input";
+  let menu = document.getElementById("tipos-aposta");
+  menu.appendChild(mensagem_erro);
+
   if (input) {
     if (input.value == "" || input.value == 0 || input.value > dinheiro_quant) {
-      let mensagem_erro = document.createElement("p");
-      mensagem_erro.id = "mensagem_erro_input";
       mensagem_erro.innerHTML = "Número inválido ou maior que o atual.";
-      let menu = document.getElementById("tipos-aposta");
-      menu.appendChild(mensagem_erro);
       return false;
     }
   }
 
-  if (document.getElementById("xerupita")) {
-    if (document.getElementById("dezena")) {
-      if (document.getElementById("xerupita").value < 01) {
-        let mensagem_erro = document.createElement("p");
-        mensagem_erro.id = "mensagem_erro_input";
-        mensagem_erro.innerHTML = "Número inválido. O número não é uma dezena";
-        let menu = document.getElementById("tipos-aposta");
-        menu.appendChild(mensagem_erro);
+  console.log(jobler);
+
+  let xerupita = document.getElementById("xerupita");
+
+  if (xerupita) {
+    pre_enviar_aposta(resultado);
+    if (resultado == "Dezena") {
+      console.log("dezena");
+      if (xerupita.value < 1 || xerupita.value == "") {
+        mensagem_erro.innerHTML = "Numero inválido.";
+        return false;
       }
+      sistema_dinheiro();
+      enviar_texto_historico.innerHTML = `Você apostou x reais na ${dezena.value}: ${xerupita.value}.`;
+      espaco_historico.appendChild(enviar_texto_historico);
+      xerupita.value = '';
     }
-    if (document.getElementById("centena")) {
-      if (document.getElementById("xerupita").value < 100) {
-        let mensagem_erro = document.createElement("p");
-        mensagem_erro.id = "mensagem_erro_input";
-        mensagem_erro.innerHTML = "Número inválido. O número não é uma centena";
-        let menu = document.getElementById("tipos-aposta");
-        menu.appendChild(mensagem_erro);
+    if (resultado == "Centena") {
+      console.log("centena");
+      if (xerupita.value < 100 || xerupita.value == "") {
+        mensagem_erro.innerHTML = "Numero inválido.";
+        return false;
       }
+      sistema_dinheiro();
+      enviar_texto_historico.innerHTML = `Você apostou x reais na Centena: ${xerupita.value}.`;
+      espaco_historico.appendChild(enviar_texto_historico);
     }
-    if (document.getElementById("milhar")) {
-      if (document.getElementById("xerupita").value < 1000) {
-        let mensagem_erro = document.createElement("p");
-        mensagem_erro.id = "mensagem_erro_input";
-        mensagem_erro.innerHTML = "Número inválido. O número não é uma milhar";
-        let menu = document.getElementById("tipos-aposta");
-        menu.appendChild(mensagem_erro);
+    if (resultado == "Milhar") {
+      console.log("milhar");
+      if (xerupita.value < 1000 || xerupita.value == "") {
+        mensagem_erro.innerHTML = "Numero inválido.";
+        return false;
       }
+      sistema_dinheiro();
+      enviar_texto_historico.innerHTML = `Você apostou x reais na ${milhar.value}: ${xerupita.value}.`;
+      espaco_historico.appendChild(enviar_texto_historico);
     }
   }
 
@@ -851,10 +882,30 @@ const enviar_aposta = (elem) => {
   }
 };
 
-const erase_all = (elem) => {
-  for (let xerecard = 0; xerecard < elem.length; xerecard++) {
-    document.getElementById(elem[xerecard]).style = "grayscale(0) blur(0)";
-    document.getElementById(elem[xerecard]).estado = 0;
+const erase_all = () => {
+  for (let xerecard = 0; xerecard < grupo.length; xerecard++) {
+    document.getElementById(grupo[xerecard]).style = "grayscale(0) blur(0)";
+    document.getElementById(grupo[xerecard]).estado = 0;
+  }
+  for (let xerecard = 0; xerecard < duplo.length; xerecard++) {
+    document.getElementById(duplo[xerecard]).style = "grayscale(0)";
+    document.getElementById(duplo[xerecard]).estado = 0;
+  }
+  for (let xerecard = 0; xerecard < terno.length; xerecard++) {
+    document.getElementById(terno[xerecard]).style = "grayscale(0)";
+    document.getElementById(terno[xerecard]).estado = 0;
+  }
+  for (let xerecard = 0; xerecard < quadra.length; xerecard++) {
+    document.getElementById(quadra[xerecard]).style = "grayscale(0)";
+    document.getElementById(quadra[xerecard]).estado = 0;
+  }
+  for (let xerecard = 0; xerecard < quina.length; xerecard++) {
+    document.getElementById(quina[xerecard]).style = "grayscale(0)";
+    document.getElementById(quina[xerecard]).estado = 0;
+  }
+  for (let xerecard = 0; xerecard < pulo.length; xerecard++) {
+    document.getElementById(pulo[xerecard]).style = "grayscale(0)";
+    document.getElementById(pulo[xerecard]).estado = 0;
   }
   grupo = [];
   duplo = [];
@@ -866,9 +917,11 @@ const erase_all = (elem) => {
 
 const inserir_dinheiro = (elem) => {
   tamanhoMaximo = elem.length + 1;
-  if (tamanhoMaximo) {
-    console.log("pirurpiruprripriuro");
-    limpar_inserir_dinheiro();
+  if (elem !== "Dezena") {
+    if (tamanhoMaximo) {
+      console.log("pirurpiruprripriuro");
+      limpar_inserir_dinheiro();
+    }
   }
   let labelzona = document.createElement("label");
   labelzona.id = "texto_inserir_dinheiro_bicho";

@@ -18,26 +18,35 @@ body {
 #cabecalho {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   padding-top: 2vh;
   padding-bottom: 2vh;
   background-color: #f0f1f1;
   box-shadow: 0 0.5vh 1vh rgba(57, 63, 72, 0.3);
   font-size: 3vh;
+  max-width: 100%;
 }
 
 #dinheiro {
-  margin-left: 55.5em;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
   white-space: nowrap;
+  max-width: 100%;
+}
+
+#dinheiro1 {
+  margin-right: 1.5vh;
 }
 
 #titulo {
   padding-left: 2vh;
+  white-space: nowrap;
 }
 
 #adicionar {
-  height: 3.6vh;
-  width: 1.5%;
+  text-align: center;
+  height: 100%;
+  width: 100%;
   margin-right: 2vh;
   margin-bottom: 0.1vh;
   border-radius: 0.5vh;
@@ -294,12 +303,12 @@ body {
   word-break: break-all;
 }
 
-#opcao_inverter{
+#opcao_inverter {
   margin-top: 0.3em;
   margin-left: 0.5em;
 }
 
-#label_inverter{
+#label_inverter {
   margin-top: 0.5em;
 }
 
@@ -434,7 +443,7 @@ body {
     margin-top: 2.5vh;
   }
 
-  #tipos-aposta{
+  #tipos-aposta {
     width: 50vh;
   }
 
@@ -453,7 +462,7 @@ body {
     margin-left: 5vh;
   }
 
-  #adicionar{
+  #adicionar {
     font-size: 2vh;
     text-align: center;
   }
@@ -463,30 +472,30 @@ body {
     font-size: 2vh;
   }
 
-  #pafuncio{
+  #pafuncio {
     font-size: 2vh;
   }
 
-  #botao_xis{
+  #botao_xis {
     font-size: 1.5vh;
   }
 
-  #claudinho{
+  #claudinho {
     height: 2vh;
     width: 28.91vh;
-    font-size: 2vh
-  }
-
-  #mensagem_erro_input{
     font-size: 2vh;
   }
 
-  #inserir_dinheiro_bicho{
+  #mensagem_erro_input {
+    font-size: 2vh;
+  }
+
+  #inserir_dinheiro_bicho {
     width: 34.3vh;
     margin-left: 2vh;
   }
 
-  #texto_inserir_dinheiro_bicho{
+  #texto_inserir_dinheiro_bicho {
     margin-top: 2.4vh;
   }
 }
